@@ -1,0 +1,5 @@
+{
+    "presets": [
+        "@whizark/remark-preset/preset/lint.js"
+    ]
+}

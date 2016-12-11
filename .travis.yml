@@ -1,0 +1,41 @@
+sudo: required
+
+language: node_js
+
+node_js:
+    - stable
+
+services:
+    - docker
+
+cache:
+    directories:
+        - node_modules
+
+before_install:
+    - npm config set progress false
+    - npm install -g npm@latest
+
+install:
+    - npm prune
+    - npm update
+    - docker pull lukasmartinelli/hadolint
+
+script:
+    - npm run ci:test
+    - docker run --rm -i lukasmartinelli/hadolint < ./alpine/Dockerfile
+
+after_success:
+
+after_failure:
+
+notifications:
+    email: false
+
+    slack:
+        rooms:
+            - secure: w3QFidm6+3D5QI6KUm8rOYnSTDaHwNILmzzMaKpeGXLydeOTO3zDLXXxfnY/WLmSSO+aT2zSBJardz3dN4tM79mSsC/AFCgsCp7m/MeoKTwGrd0+LYWoTo6W7IiL989J11NJmd2OHZ09wteXslhuJv3X7w63Box44v1eUgDNwLSI1qfC+1KtkW5gQJbxwcWxr4c9Z4FmVjFTXhC4gqfW6UMtKL+uI7spDJkh3o/ukClVryGYu2spHbgpsQHmQnk77zEcOjzoicUSgjsiKhlRmpPjMzpg1pkfdJ2jkuI/eflsOcgKZwDHem5iqneCZ9Uo9Kz6jXSLq7njp/oejKPb+EbUb9xFYIWIyNwkTA+LJIBr5GlWAx7RDfk9SzloRZzhfOf8bDJz7JUGtPmWee3673w9KQ9QVkkRGr3FMw54OuZTidAKk0vI8VnbrnLjwSBUOcMVcikfm3iHi3EWJERQUaHCY6s3ipGanZeuJRWC9kwl8hMXKSF3dBoDwS9np2fZtsay/y8HwKOl1S9BgCHUzRiuy+M18mDOhuhD7x6JzdrCZzOQ85PaAbZ/RrsbfHGBfQDg8owbfXCSxLkZp1f0sbNmQZLpyv1fkf5sIT1PlwTe8YSc3mFWSw+SE3xe9GlZiwBoRbPDgUoYGQJcYtl4AYvyjvaJIDYcEt+3d/GYC9Y=
+        on_pull_requests: false
+        on_start: never
+        on_success: never
+        on_failure: change
