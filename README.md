@@ -24,8 +24,8 @@ docker run --rm -i -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" devaloka/wp-cli <co
 [alpine-linux]: https://alpinelinux.org
 [wp-cli]: http://wp-cli.org
 
-[travis-image]: https://travis-ci.org/devaloka/wp-cli.svg?branch=master
-[travis-url]: https://travis-ci.org/devaloka/wp-cli
+[travis-image]: https://travis-ci.org/devaloka/docker-wp-cli.svg?branch=master
+[travis-url]: https://travis-ci.org/devaloka/docker-wp-cli
 
 [docker-image]: https://img.shields.io/docker/automated/devaloka/wp-cli.svg
 [docker-url]: https://hub.docker.com/r/devaloka/wp-cli/
