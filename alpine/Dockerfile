@@ -10,7 +10,7 @@ ENV WP_CLI_VERSION=latest \
     WP_CLI_WORKDIR=/wp-cli \
     PAGER=cat
 
-RUN if [[ "$WP_CLI_VERSION" == latest ]]; then \
+RUN if [[ "$WP_CLI_VERSION" == "latest" ]]; then \
         curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; \
     else \
         curl -L -o wp-cli.phar "https://github.com/wp-cli/wp-cli/releases/download/v{$WP_CLI_VERSION}/wp-cli-${WP_CLI_VERSION}.phar"; \
