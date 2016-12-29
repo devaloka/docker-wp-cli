@@ -12,10 +12,10 @@
         "ci:test"          : "npm run --silent ci:lint:md"
     },
     "devDependencies": {
-        "@whizark/remark-preset": "~0.3.1",
+        "@whizark/remark-preset": "~0.5.0",
         "chokidar-cli"          : "~1.2.0",
         "remark-cli"            : "~2.1.0",
-        "remark-lint"           : "~5.2.0",
+        "remark-lint"           : "~5.4.0",
         "npm-run-all"           : "~3.1.2"
     },
     "private"        : true
