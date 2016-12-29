@@ -7,6 +7,8 @@
 
 [Alpine Linux][alpine-linux] based Docker image for [WP-CLI][wp-cli].
 
+> WP-CLI is a set of command-line tools for managing WordPress installations.
+
 ## Usage
 
 Mount a data-volume-container and run WP-CLI.
