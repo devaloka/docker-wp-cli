@@ -25,10 +25,6 @@ script:
     - npm run ci:test
     - docker run --rm -i lukasmartinelli/hadolint < ./alpine/Dockerfile
 
-after_success:
-
-after_failure:
-
 notifications:
     email: false
 
