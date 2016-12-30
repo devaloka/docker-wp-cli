@@ -11,10 +11,17 @@ services:
 cache:
     directories:
         - node_modules
+        - $HOME/docker
 
 before_install:
     - npm config set progress false
     - npm install -g npm@latest
+    - |-
+        if [[ -d "$HOME/docker" ]]; then
+            for CACHE in "$HOME"/docker/*.tar.gz; do
+                [[ -e "$CACHE" ]] && docker load -i "$CACHE"
+            done
+        fi
 
 install:
     - npm prune
@@ -24,6 +31,12 @@ install:
 script:
     - npm run ci:test
     - docker run --rm -i lukasmartinelli/hadolint < ./alpine/Dockerfile
+
+before_cache:
+    - >-
+        mkdir -p "$HOME/docker" &&
+        docker images -a --filter "dangling=false" --format "{{.Repository}}:{{.Tag}} {{.ID}}" |
+        xargs -n 2 -t sh -c '[ -e "$HOME/docker/$1.tar.gz" ] || docker save "$0" | gzip -2 > "$HOME/docker/$1.tar.gz"'
 
 notifications:
     email: false
