@@ -18,7 +18,9 @@ before_install:
     - npm install -g npm@latest
     - |-
         for CACHE in "$HOME"/docker/*.tar.gz; do
-            [[ -e "$CACHE" ]] && docker load -i "$CACHE"
+            if [[ -e "$CACHE" ]]; then
+                docker load -i "$CACHE"
+            fi
         done
 
 install:
