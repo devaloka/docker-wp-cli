@@ -9,7 +9,23 @@
 
 > WP-CLI is a set of command-line tools for managing WordPress installations.
 
+## Installation
+
+Pull the image from Docker Hub.
+
+```sh
+docker pull devaloka/wp-cli
+```
+
+Or, pull the image from Quay.
+
+```sh
+docker pull quay.io/devaloka/wp-cli
+```
+
 ## Usage
+
+### Run the image pulled from Docker Hub
 
 Mount a data-volume-container and run WP-CLI.
 
@@ -21,6 +37,20 @@ Mount a host directory and run WP-CLI.
 
 ```sh
 docker run --rm -i -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" devaloka/wp-cli <command>
+```
+
+### Run the image pulled from Quay
+
+Mount a data-volume-container and run WP-CLI.
+
+```sh
+docker run --rm -i -u <uid>:<gid> -v <data-volume-container> quay.io/devaloka/wp-cli <command>
+```
+
+Mount a host directory and run WP-CLI.
+
+```sh
+docker run --rm -i -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" quay.io/devaloka/wp-cli <command>
 ```
 
 [alpine-linux]: https://alpinelinux.org
