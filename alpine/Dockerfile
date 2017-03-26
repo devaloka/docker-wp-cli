@@ -1,6 +1,6 @@
 FROM php:7-alpine
 
-MAINTAINER Whizark https://github.com/whizark
+LABEL maintainer="Whizark https://github.com/whizark"
 
 ENV WP_CLI_VERSION=latest \
     WP_CLI_OWNER=wp-cli \
