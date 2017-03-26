@@ -1,13 +1,13 @@
 {
     "scripts"        : {
-        "lint:md"          : "remark \"./**/*.md\"",
+        "lint:md"          : "remark .",
         "lint:docker"      : "hadolint ./alpine/Dockerfile",
         "test"             : "npm-run-all --parallel --silent --continue-on-error lint:*",
         "build"            : "docker build -t devaloka/wp-cli:latest ./alpine",
         "watch:lint:md"    : "chokidar \"./**/*.md\" --ignore \"node_modules/**/*\" -c \"npm run --silent lint:md\"",
         "watch:lint:docker": "chokidar \"./**/Dockerfile\" --ignore \"node_modules/**/*\" -c \"npm run --silent lint:docker\"",
         "watch"            : "npm-run-all --parallel --silent --continue-on-error watch:lint:*",
-        "ci:lint:md"       : "remark --frail \"./**/*.md\"",
+        "ci:lint:md"       : "remark --frail .",
         "ci:lint:docker"   : "docker run --rm -i lukasmartinelli/hadolint < ./alpine/Dockerfile",
         "ci:test"          : "npm run --silent ci:lint:md"
     },
