@@ -30,13 +30,13 @@ docker pull quay.io/devaloka/wp-cli
 Mount a data-volume-container and run WP-CLI.
 
 ```sh
-docker run --rm -i -u <uid>:<gid> -v <data-volume-container> devaloka/wp-cli <command>
+docker run --rm -it -u <uid>:<gid> -v <data-volume-container> devaloka/wp-cli <command>
 ```
 
 Mount a host directory and run WP-CLI.
 
 ```sh
-docker run --rm -i -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" devaloka/wp-cli <command>
+docker run --rm -it -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" devaloka/wp-cli <command>
 ```
 
 ### Run the image pulled from Quay
@@ -44,13 +44,13 @@ docker run --rm -i -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" devaloka/wp-cli <co
 Mount a data-volume-container and run WP-CLI.
 
 ```sh
-docker run --rm -i -u <uid>:<gid> -v <data-volume-container> quay.io/devaloka/wp-cli <command>
+docker run --rm -it -u <uid>:<gid> -v <data-volume-container> quay.io/devaloka/wp-cli <command>
 ```
 
 Mount a host directory and run WP-CLI.
 
 ```sh
-docker run --rm -i -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" quay.io/devaloka/wp-cli <command>
+docker run --rm -it -u "$UID:$(id -g)" -v "$(pwd)/wp:/wp-cli" quay.io/devaloka/wp-cli <command>
 ```
 
 [alpine-linux]: https://alpinelinux.org
