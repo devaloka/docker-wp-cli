@@ -26,11 +26,11 @@ before_install:
 install:
     - npm prune
     - npm update --no-save
-    - docker pull lukasmartinelli/hadolint
+    - docker pull hadolint/hadolint
 
 script:
     - npm run ci:test
-    - docker run --rm -i lukasmartinelli/hadolint < ./alpine/Dockerfile
+    - docker run --rm -i hadolint/hadolint < ./alpine/Dockerfile
 
 before_cache:
     - >-

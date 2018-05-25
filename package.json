@@ -8,7 +8,7 @@
         "watch:lint:docker": "chokidar \"./**/Dockerfile\" --ignore \"node_modules/**/*\" -c \"npm run --silent lint:docker\"",
         "watch"            : "npm-run-all --parallel --silent --continue-on-error watch:lint:*",
         "ci:lint:md"       : "remark --frail .",
-        "ci:lint:docker"   : "docker run --rm -i lukasmartinelli/hadolint < ./alpine/Dockerfile",
+        "ci:lint:docker"   : "docker run --rm -i hadolint/hadolint < ./alpine/Dockerfile",
         "ci:test"          : "npm run --silent ci:lint:md"
     },
     "devDependencies": {
