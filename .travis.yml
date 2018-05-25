@@ -25,7 +25,7 @@ before_install:
 
 install:
     - npm prune
-    - npm update
+    - npm update --no-save
     - docker pull lukasmartinelli/hadolint
 
 script:
